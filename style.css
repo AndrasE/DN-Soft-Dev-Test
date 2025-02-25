@@ -34,6 +34,7 @@ label {
 input {
   min-width: 215px;
   height: 1.3rem;
+  padding-left: 4px;
 }
 
 button {
