@@ -4,14 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>hello world</h1>
 
+
+    <form id="form">
+        <div class="input-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Your Name">
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="Enter Your Email">
+        </div>
+        <div class="input-group">
+            <label for="card">Card:</label>
+            <input type="text" id="card" placeholder="Enter a Proxy Credit Card Number.">
+        </div>
+        <button type="submit" id="button">Submit</button>
+    </form>
+
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>

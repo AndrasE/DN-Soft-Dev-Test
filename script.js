@@ -1,3 +1,3 @@
-document.querySelector("h1").addEventListener("click", function () {
+document.querySelector("form").addEventListener("click", function () {
   console.log("clicked");
 });
