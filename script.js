@@ -17,6 +17,16 @@ document.getElementById("form").addEventListener("submit", (e) => {
   }
 });
 
+function hideCardValue() {
+  let card = document.getElementById("card");
+  card.type = "password";
+}
+
+function showCardValue() {
+  let card = document.getElementById("card");
+  card.type = "number";
+}
+
 // Form validation
 function formValidation(name, email, card) {
   let isValid = true;
@@ -25,10 +35,12 @@ function formValidation(name, email, card) {
   if (name.value.trim() === "") {
     name.classList.add("error");
     name.classList.remove("success");
+    name.classList.add("placeholder-white");
     isValid = false;
   } else {
     name.classList.add("success");
     name.classList.remove("error");
+    name.classList.remove("placeholder-white");
   }
 
   // Email validation
@@ -36,22 +48,45 @@ function formValidation(name, email, card) {
   if (!emailPattern.test(email.value.trim())) {
     email.classList.add("error");
     email.classList.remove("success");
+    email.classList.add("placeholder-white");
     isValid = false;
   } else {
     email.classList.add("success");
     email.classList.remove("error");
+    email.classList.remove("placeholder-white");
   }
 
   // Card validation (must be exactly 16 digits)
   if (card.value.length < 5) {
     card.classList.add("error");
     card.classList.remove("success");
+    card.classList.add("placeholder-white");
     isValid = false;
   } else {
     card.classList.add("success");
     card.classList.remove("error");
+    card.classList.remove("placeholder-white");
   }
 
   console.log("Form Validation Result: ", isValid);
   return isValid;
 }
+
+// Remove error class when user starts typing
+document.getElementById("name").addEventListener("input", () => {
+  let name = document.getElementById("name");
+  name.classList.remove("error");
+  name.classList.remove("placeholder-white");
+});
+
+document.getElementById("email").addEventListener("input", () => {
+  let email = document.getElementById("email");
+  email.classList.remove("error");
+  email.classList.remove("placeholder-white");
+});
+
+document.getElementById("card").addEventListener("input", () => {
+  let card = document.getElementById("card");
+  card.classList.remove("error");
+  card.classList.remove("placeholder-white");
+});

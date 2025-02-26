@@ -13,7 +13,6 @@
 
 <body>
 
-
     <form id="form">
         <div class="input-group">
             <label for="name">Name:</label>
@@ -25,7 +24,8 @@
         </div>
         <div class="input-group">
             <label for="card">Card:</label>
-            <input type="number" id="card" placeholder="Enter a Proxy Credit Card Number.">
+            <input type="number" id="card" placeholder="Enter a Proxy Credit Card Number." onblur="hideCardValue()"
+                onfocus="showCardValue()">
         </div>
         <button type="submit" id="button">Submit</button>
     </form>
