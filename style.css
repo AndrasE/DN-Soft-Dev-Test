@@ -53,3 +53,10 @@ button {
   align-items: center;
   margin: 8px 0;
 }
+.success {
+  background-color: none;
+}
+.error {
+  background-color: #e70064;
+  border: #3c3c3b 1px solid;
+}

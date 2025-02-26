@@ -1,14 +1,57 @@
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let card = document.getElementById("card").value;
-  let targetEmail = "rohadtsajt@gmail.com";
-  let subject = "Form Submission - Software Dev Challenge";
-  let body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ACard: ${card}`;
+  let name = document.getElementById("name");
+  let email = document.getElementById("email");
+  let card = document.getElementById("card");
 
-  let mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+  let isValid = formValidation(name, email, card);
 
-  window.location.href = mailtoLink;
+  if (isValid) {
+    let targetEmail = "rohadtsajt@gmail.com";
+    let subject = "Form Submission - Software Dev Challenge";
+    let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
+
+    let mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  }
 });
+
+// Form validation
+function formValidation(name, email, card) {
+  let isValid = true;
+
+  // Name validation
+  if (name.value.trim() === "") {
+    name.classList.add("error");
+    name.classList.remove("success");
+    isValid = false;
+  } else {
+    name.classList.add("success");
+    name.classList.remove("error");
+  }
+
+  // Email validation
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email.value.trim())) {
+    email.classList.add("error");
+    email.classList.remove("success");
+    isValid = false;
+  } else {
+    email.classList.add("success");
+    email.classList.remove("error");
+  }
+
+  // Card validation (must be exactly 16 digits)
+  if (card.value.length < 5) {
+    card.classList.add("error");
+    card.classList.remove("success");
+    isValid = false;
+  } else {
+    card.classList.add("success");
+    card.classList.remove("error");
+  }
+
+  console.log("Form Validation Result: ", isValid);
+  return isValid;
+}
