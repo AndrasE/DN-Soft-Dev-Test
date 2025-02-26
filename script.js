@@ -1,36 +1,21 @@
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
-
   let name = document.getElementById("name");
   let email = document.getElementById("email");
   let card = document.getElementById("card");
-
   let isValid = formValidation(name, email, card);
-
   if (isValid) {
     let targetEmail = "rohadtsajt@gmail.com";
     let subject = "Form Submission - Software Dev Challenge";
     let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
-
     let mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
   }
 });
 
-function hideCardValue() {
-  let card = document.getElementById("card");
-  card.type = "password";
-}
-
-function showCardValue() {
-  let card = document.getElementById("card");
-  card.type = "number";
-}
-
 // Form validation
 function formValidation(name, email, card) {
   let isValid = true;
-
   // Name validation
   if (name.value.trim() === "") {
     name.classList.add("error");
@@ -42,7 +27,6 @@ function formValidation(name, email, card) {
     name.classList.remove("error");
     name.classList.remove("placeholder-white");
   }
-
   // Email validation
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email.value.trim())) {
@@ -55,7 +39,6 @@ function formValidation(name, email, card) {
     email.classList.remove("error");
     email.classList.remove("placeholder-white");
   }
-
   // Card validation (must be exactly 16 digits)
   if (card.value.length < 5) {
     card.classList.add("error");
@@ -67,26 +50,26 @@ function formValidation(name, email, card) {
     card.classList.remove("error");
     card.classList.remove("placeholder-white");
   }
-
   console.log("Form Validation Result: ", isValid);
   return isValid;
 }
 
 // Remove error class when user starts typing
-document.getElementById("name").addEventListener("input", () => {
-  let name = document.getElementById("name");
-  name.classList.remove("error");
-  name.classList.remove("placeholder-white");
+["name", "email", "card"].forEach((id) => {
+  document.getElementById(id).addEventListener("input", () => {
+    let element = document.getElementById(id);
+    element.classList.remove("error");
+    element.classList.remove("placeholder-white");
+  });
 });
 
-document.getElementById("email").addEventListener("input", () => {
-  let email = document.getElementById("email");
-  email.classList.remove("error");
-  email.classList.remove("placeholder-white");
-});
-
-document.getElementById("card").addEventListener("input", () => {
+// Hide/Show card input value on users position
+function hideCardValue() {
   let card = document.getElementById("card");
-  card.classList.remove("error");
-  card.classList.remove("placeholder-white");
-});
+  card.type = "password";
+}
+
+function showCardValue() {
+  let card = document.getElementById("card");
+  card.type = "number";
+}
