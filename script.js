@@ -5,7 +5,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
   let card = document.getElementById("card");
   let isValid = formValidation(name, email, card);
   if (isValid) {
-    let targetEmail = "rohadtsajt@gmail.com";
+    let targetEmail = "challenge@dn-uk.com";
     let subject = "Form Submission - Software Dev Challenge";
     let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
     let mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
@@ -17,7 +17,8 @@ document.getElementById("form").addEventListener("submit", (e) => {
 function formValidation(name, email, card) {
   let isValid = true;
   // Name validation
-  if (name.value.trim() === "") {
+  let namePattern = /^[A-Za-z]{2,}(?: [A-Za-z]{2,}(?:-[A-Za-z]{2,})?)+$/;
+  if (name.value.trim() === "" || !namePattern.test(name.value.trim())) {
     name.classList.add("error");
     name.classList.remove("success");
     name.classList.add("placeholder-white");

@@ -41,6 +41,7 @@ input {
   height: 1.3rem;
   color: black;
   padding-left: 4px;
+  border: none;
 }
 
 /* Hide spinner controls for number input */
@@ -87,6 +88,5 @@ button {
 /* Error Styles */
 .error {
   background-color: #e70064;
-  border: #3c3c3b 1px solid;
   color: white;
 }
