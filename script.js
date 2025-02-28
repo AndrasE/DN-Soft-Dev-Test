@@ -1,76 +1,91 @@
+// Form submission on submit button click if form is valid
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
   let name = document.getElementById("name");
   let email = document.getElementById("email");
   let card = document.getElementById("card");
-  let isValid = formValidation(name, email, card);
-  if (isValid) {
+
+  if (formValidation(name, email, card)) {
     let targetEmail = "challenge@dn-uk.com";
     let subject = "Form Submission - Software Dev Challenge";
     let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
-    let mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
+    window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
   }
 });
+
+// Utility functions for adding/removing classes
+function setValidField(field) {
+  field.classList.add("success");
+  field.classList.remove("error", "placeholder-white");
+}
+
+function setInvalidField(field) {
+  field.classList.add("error", "placeholder-white");
+  field.classList.remove("success");
+}
 
 // Form validation
 function formValidation(name, email, card) {
   let isValid = true;
-  // Name validation
+
+  // Name validation (Supports first & last name, allows hyphens)
   let namePattern = /^[A-Za-z]{2,}(?: [A-Za-z]{2,}(?:-[A-Za-z]{2,})?)+$/;
-  if (name.value.trim() === "" || !namePattern.test(name.value.trim())) {
-    name.classList.add("error");
-    name.classList.remove("success");
-    name.classList.add("placeholder-white");
+  if (!namePattern.test(name.value.trim())) {
+    setInvalidField(name);
     isValid = false;
   } else {
-    name.classList.add("success");
-    name.classList.remove("error");
-    name.classList.remove("placeholder-white");
+    setValidField(name);
   }
+
   // Email validation
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email.value.trim())) {
-    email.classList.add("error");
-    email.classList.remove("success");
-    email.classList.add("placeholder-white");
+    setInvalidField(email);
     isValid = false;
   } else {
-    email.classList.add("success");
-    email.classList.remove("error");
-    email.classList.remove("placeholder-white");
+    setValidField(email);
   }
-  // Card validation (must be exactly 16 digits)
-  if (card.value.length < 5) {
-    card.classList.add("error");
-    card.classList.remove("success");
-    card.classList.add("placeholder-white");
+
+  // Card validation (Luhn Algorithm)
+  let numStr = card.value.replace(/\s+/g, ""); // Remove spaces
+  if (numStr.length < 13 || numStr.length > 19 || !/^\d+$/.test(numStr)) {
+    setInvalidField(card);
     isValid = false;
   } else {
-    card.classList.add("success");
-    card.classList.remove("error");
-    card.classList.remove("placeholder-white");
+    let sum = 0,
+      shouldDouble = false;
+    for (let i = numStr.length - 1; i >= 0; i--) {
+      let digit = parseInt(numStr[i]);
+      if (shouldDouble) {
+        digit *= 2;
+        if (digit > 9) digit -= 9;
+      }
+      sum += digit;
+      shouldDouble = !shouldDouble;
+    }
+    if (sum % 10 !== 0) {
+      setInvalidField(card);
+      isValid = false;
+    } else {
+      setValidField(card);
+    }
   }
-  console.log("Form Validation Result: ", isValid);
+
   return isValid;
 }
 
 // Remove error class when user starts typing
 ["name", "email", "card"].forEach((id) => {
-  document.getElementById(id).addEventListener("input", () => {
-    let element = document.getElementById(id);
-    element.classList.remove("error");
-    element.classList.remove("placeholder-white");
+  document.getElementById(id).addEventListener("input", function () {
+    this.classList.remove("error", "placeholder-white");
   });
 });
 
-// Hide/Show card input value on users position
+// Hide/Show card input value on user action
 function hideCardValue() {
-  let card = document.getElementById("card");
-  card.type = "password";
+  document.getElementById("card").type = "password";
 }
 
 function showCardValue() {
-  let card = document.getElementById("card");
-  card.type = "number";
+  document.getElementById("card").type = "number";
 }
