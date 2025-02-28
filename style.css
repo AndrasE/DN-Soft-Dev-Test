@@ -18,6 +18,42 @@ body {
   text-align: center;
 }
 
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #89c82e;
+  height: 40px;
+  border-bottom: #3c3c3b 4px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; /* Ensure navbar is on top */
+}
+
+/* Navbar links */
+.navbar a {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(120deg, #636361 0%, #636361 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0em;
+  background-position: 0 100%;
+  transition: background-size 0.25s ease-in;
+}
+
+/* Hover effect */
+.navbar a:hover {
+  background-size: 100% 100%;
+}
+
 /* Form Styles */
 form {
   background-color: #89c82e;
@@ -96,4 +132,9 @@ button {
 .error {
   background-color: #e70064;
   color: white;
+}
+.link-94 {
+}
+
+.link-94:hover {
 }

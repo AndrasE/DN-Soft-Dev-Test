@@ -5,7 +5,6 @@ document.getElementById("form").addEventListener("submit", (e) => {
   let email = document.getElementById("email");
   let card = document.getElementById("card");
 
-
   //If form is valid, send email
   if (formValidation(name, email, card)) {
     let targetEmail = "challenge@dn-uk.com";
