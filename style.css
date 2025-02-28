@@ -16,7 +16,6 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: gray;
 }
 
 /* Form Styles */
@@ -66,6 +65,14 @@ button {
   border: #3c3c3b 1px solid;
   background-color: #e70064;
   cursor: pointer;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background: url("/src/background-image.webp");
+  filter: brightness(0.4);
+  z-index: -1; /* Sends it to the background */
 }
 
 /* Placeholder Styles */

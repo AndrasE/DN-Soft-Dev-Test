@@ -1,10 +1,12 @@
-// Form submission on submit button click if form is valid
+// Form submission on submit button click
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
   let name = document.getElementById("name");
   let email = document.getElementById("email");
   let card = document.getElementById("card");
 
+
+  //If form is valid, send email
   if (formValidation(name, email, card)) {
     let targetEmail = "challenge@dn-uk.com";
     let subject = "Form Submission - Software Dev Challenge";
