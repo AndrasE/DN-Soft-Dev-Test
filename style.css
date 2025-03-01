@@ -39,6 +39,9 @@ body {
   font-size: 20px;
   text-decoration: none;
   padding: 10px 20px;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
   margin: 0 5px;
   position: relative;
   display: inline-block;
@@ -47,6 +50,22 @@ body {
   background-size: 100% 0em;
   background-position: 0 100%;
   transition: background-size 0.25s ease-in;
+  border-radius: 15px 15px 0 0;
+}
+
+.navbar span {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  display: inline-block;
+  background-color: #636361;
+  border-radius: 15px 15px 0 0;
 }
 
 .navbar .open-icon {
