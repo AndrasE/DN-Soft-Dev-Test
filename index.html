@@ -12,14 +12,21 @@
 </head>
 
 <body>
-    <div class="navbar" id="navbar">
+    <nav class="navbar" id="navbar">
         <span>Submission</span>
         <a href="reflect.html">Reflect</a>
         <a href="challenge.html">Challenge</a>
-        <a href="javascript:void(0);" class="open-icon" onclick="toggleNavbar()">☰</a>
-        <a href="javascript:void(0);" class="close-icon" onclick="toggleNavbar()">X</a>
-    </div>
+    </nav>
+    <nav class="navbar dropdown " id="dropdown">
+        <span>Submission</span>
+        <a href="reflect.html">Reflect</a>
+        <a href="challenge.html">Challenge</a>
+        <a href="javascript:void(0);" class="open-icon" aria-label="Open Dropdown" onclick="toggleDropdown()">☰</a>
+        <a href="javascript:void(0);" class="close-icon" aria-label="Close Dropdown" onclick="toggleDropdown()">X</a>
+    </nav>
+
     <div class="background"></div>
+
     <form id="form" novalidate>
         <div class="input-group">
             <label for="name">Name:</label>

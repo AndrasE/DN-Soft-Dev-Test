@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100; /* Ensure navbar is on top */
+  z-index: 100;
 }
 
 /* Navbar links */
@@ -39,45 +39,92 @@ body {
   font-size: 20px;
   text-decoration: none;
   padding: 10px 20px;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
   margin: 0 5px;
   position: relative;
   display: inline-block;
+  border-radius: 15px 15px 0 0;
   background: linear-gradient(120deg, #636361 0%, #636361 100%);
   background-repeat: no-repeat;
   background-size: 100% 0em;
   background-position: 0 100%;
   transition: background-size 0.25s ease-in;
-  border-radius: 15px 15px 0 0;
 }
 
 .navbar span {
   color: #ffffff;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
+  background-color: #636361;
   font-size: 20px;
   text-decoration: none;
   padding: 10px 20px;
   margin: 0 5px;
-  position: relative;
-  display: inline-block;
-  background-color: #636361;
   border-radius: 15px 15px 0 0;
 }
 
-.navbar .open-icon {
-  display: none;
-}
-
+.navbar .open-icon,
 .navbar .close-icon {
   display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(120deg, #636361 0%, #636361 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 100% 0;
+  transition: background-size 0.25s ease-in;
 }
 
 /* Hover effect */
 .navbar a:hover {
+  background-size: 100% 100%;
+}
+
+/* Dropdown Navbar */
+.navbar.dropdown {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #89c82e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 40px;
+  overflow: hidden;
+}
+
+.navbar.dropdown a {
+  display: none;
+}
+
+.navbar.dropdown.responsive {
+  height: 110px;
+}
+
+.navbar.dropdown.responsive a {
+  display: block;
+}
+
+/* Dropdown link hover effect */
+.navbar.dropdown a {
+  background: linear-gradient(120deg, #636361 0%, #636361 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 0 100%;
+  transition: background-size 0.25s ease-in;
+}
+
+.navbar.dropdown a:hover {
+  background-size: 100% 100%;
+}
+
+.navbar.dropdown .open-icon,
+.navbar.dropdown .close-icon {
+  background-position: 100% 0;
+}
+
+.navbar.dropdown .open-icon:hover,
+.navbar.dropdown .close-icon:hover {
   background-size: 100% 100%;
 }
 
@@ -135,7 +182,7 @@ button {
   inset: 0;
   background: url("/src/background-image.webp");
   filter: brightness(0.4);
-  z-index: -1; /* Sends it to the background */
+  z-index: -1;
 }
 
 /* Placeholder Styles */
@@ -161,14 +208,6 @@ button {
   color: white;
 }
 
-.responsive {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: max-content;
-}
-
 /* Media Queries */
 @media screen and (max-width: 600px) {
   .navbar {
@@ -180,28 +219,72 @@ button {
     float: none;
     display: block;
     text-align: center;
-    margin: 0;
-    padding: 10px;
   }
 
-  .navbar .open-icon {
+  .navbar.dropdown {
+    display: flex;
+    transition: height 0.2s ease;
+  }
+
+  .navbar.dropdown span {
+    margin: 0;
+    padding: 6px 10px 6px 6px;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .navbar.dropdown a {
+    margin: 0;
+    padding: 6px 10px 6px 6px;
+    border-radius: 0 15px 15px 0;
+    background: linear-gradient(120deg, #636361 0%, #636361 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in;
+  }
+
+  .navbar.dropdown a:hover {
+    background-size: 100% 100%;
+  }
+
+  .navbar.dropdown .open-icon {
     display: inline;
     position: absolute;
+    top: 0;
     right: 0;
+    padding-left: 12px;
+    border-radius: 10px 0 0 10px;
+    background: linear-gradient(120deg, #636361 0%, #636361 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: 100% 0;
+    transition: background-size 0.25s ease-in;
   }
 
-  .navbar .close-icon {
+  .navbar.dropdown .close-icon {
     display: none;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
+    padding-left: 12px;
+    border-radius: 10px 0 0 10px;
+    background: linear-gradient(120deg, #636361 0%, #636361 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: 100% 0;
+    transition: background-size 0.2s ease-in;
   }
 
-  .navbar.responsive .open-icon {
+  .navbar.dropdown .open-icon:hover,
+  .navbar.dropdown .close-icon:hover {
+    background-size: 100% 100%;
+  }
+
+  .navbar.dropdown.responsive .open-icon {
     display: none;
   }
 
-  .navbar.responsive .close-icon {
+  .navbar.dropdown.responsive .close-icon {
     display: inline;
   }
 }
