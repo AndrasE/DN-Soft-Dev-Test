@@ -92,8 +92,8 @@ function showCardValue() {
 }
 
 // Toggle navbar
-function toggleDropdown() {
-  let navbar = document.getElementById("dropdown");
+function toggleNavDropdown() {
+  let navbar = document.getElementById("navbar");
   navbar.classList.toggle("responsive");
 
   let openIcon = document.querySelector(".open-icon");
