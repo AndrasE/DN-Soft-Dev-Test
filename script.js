@@ -88,13 +88,13 @@ function formValidation(name, email, card) {
   });
 });
 
-// Hide/Show card input value on user action
-function hideCardValue() {
-  document.getElementById("card").type = "password";
+// Hide/Show input value on user action
+function hideValue(inputId) {
+  document.getElementById(inputId).type = "password";
 }
 
-function showCardValue() {
-  document.getElementById("card").type = "number";
+function showValue(inputId) {
+  document.getElementById(inputId).type = "text";
 }
 
 // Toggle navbar

@@ -28,7 +28,8 @@
     <form id="form" novalidate>
         <div class="input-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter Your Name" autocomplete="name" required>
+            <input type="text" id="name" placeholder="Enter Your Name" autocomplete="name" onblur="hideValue('name')"
+                onfocus="showValue('name')" required>
         </div>
         <div class="input-group">
             <label for="email">Email:</label>
@@ -37,7 +38,7 @@
         <div class="input-group">
             <label for="card">Card:</label>
             <input type="text" id="card" placeholder="Enter a Proxy Credit Card Number." pattern="\d{13,19}"
-                onblur="hideCardValue()" onfocus="showCardValue()" inputmode="numeric" aria-describedby="cardHelp">
+                onblur="hideValue('card')" onfocus="showValue('card')" inputmode="numeric" required>
         </div>
         <button type="submit" id="button">Submit</button>
     </form>
