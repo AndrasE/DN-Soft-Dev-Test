@@ -34,7 +34,7 @@ body {
 /* Navbar links and span */
 .navbar a,
 .navbar span {
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px 20px;
   margin: 0 5px;
   border-radius: 15px 15px 0 0;
@@ -43,7 +43,7 @@ body {
 .navbar a {
   color: #ffffff;
   text-decoration: none;
-  background: linear-gradient(120deg, #636361 0%, #636361 100%);
+  background: linear-gradient(120deg, #3c3c3b 0%, #3c3c3b 100%);
   background-repeat: no-repeat;
   background-size: 100% 0;
   background-position: 0 100%;
@@ -51,7 +51,7 @@ body {
 }
 
 .navbar span {
-  background-color: #636361;
+  background-color: #e70064;
   color: #ffffff;
 }
 
@@ -68,7 +68,7 @@ body {
   padding: 8px 10px 10px 12px;
   border: none;
   border-radius: 5px 0 0 5px;
-  background: linear-gradient(120deg, #636361 0%, #636361 100%);
+  background: linear-gradient(120deg, #3c3c3b 0%, #3c3c3b 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   background-position: 100% 0;
@@ -168,7 +168,7 @@ button {
   .navbar span,
   .navbar a {
     margin: 0;
-    padding: 6px 10px 6px 6px;
+    padding: 7px 7px 7px 5px;
     border-radius: 0 5px 5px 0;
   }
 

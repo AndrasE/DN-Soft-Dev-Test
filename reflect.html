@@ -4,23 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A test form submission page">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Digital-Native Software-Dev-Test</title>
 </head>
 
 <body>
-    <div class="navbar" id="navbar">
-        <a href="/">Submission</a>
-        <span>Reflect</span>
-        <a href="challenge.html">Challange</a>
-        <a href="javascript:void(0);" class="open-icon" onclick="toggleNavbar()">☰</a>
-        <a href="javascript:void(0);" class="close-icon" onclick="toggleNavbar()">X</a>
-    </div>
+    <nav class="navbar" id="navbar">
+        <a href="/">Submisson</a>
+        <a href="challenge.html">Challenge</a>
+        <span>Reflection</span>
+        <button type="button" class="open-icon" aria-label="Open Navigation Menu"
+            onclick="toggleNavDropdown()">☰</button>
+        <button type="button" class="close-icon" aria-label="Close Navigation Menu"
+            onclick="toggleNavDropdown()">X</button>
+    </nav>
+
     <div class="background"></div>
-    <h1>Reflect</h1>
+
+    <h1 style="color: aliceblue;">Reflect</h1>
     <script src="script.js"></script>
 </body>
 

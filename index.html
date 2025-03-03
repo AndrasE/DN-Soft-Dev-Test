@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A test form submission page">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Digital-Native Software-Dev-Test</title>
 </head>
@@ -14,12 +15,12 @@
 <body>
     <nav class="navbar" id="navbar">
         <span>Submission</span>
-        <a href="reflect.html">Reflect</a>
         <a href="challenge.html">Challenge</a>
-        <button href="javascript:void(0);" class="open-icon" aria-label="Open Dropdown" onclick="toggleNavDropdown()">☰
-        </button>
-        <button href="javascript:void(0);" class="close-icon" aria-label="Close Dropdown" onclick="toggleNavDropdown()">
-            X</button>
+        <a href="reflect.html">Reflection</a>
+        <button type="button" class="open-icon" aria-label="Open Navigation Menu"
+            onclick="toggleNavDropdown()">☰</button>
+        <button type="button" class="close-icon" aria-label="Close Navigation Menu"
+            onclick="toggleNavDropdown()">X</button>
     </nav>
 
     <div class="background"></div>
@@ -27,16 +28,16 @@
     <form id="form" novalidate>
         <div class="input-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter Your Name">
+            <input type="text" id="name" placeholder="Enter Your Name" autocomplete="name" required>
         </div>
         <div class="input-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter Your Email">
+            <input type="email" id="email" placeholder="Enter Your Email" autocomplete="email" required>
         </div>
         <div class="input-group">
             <label for="card">Card:</label>
-            <input type="number" id="card" placeholder="Enter a Proxy Credit Card Number." onblur="hideCardValue()"
-                onfocus="showCardValue()">
+            <input type="text" id="card" placeholder="Enter a Proxy Credit Card Number." pattern="\d{13,19}"
+                onblur="hideCardValue()" onfocus="showCardValue()" inputmode="numeric" aria-describedby="cardHelp">
         </div>
         <button type="submit" id="button">Submit</button>
     </form>
