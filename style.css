@@ -2,8 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  outline: none;
-  text-decoration: none;
   box-sizing: border-box;
 }
 
@@ -26,48 +24,50 @@ body {
   overflow: hidden;
   background-color: #89c82e;
   height: 40px;
-  border-bottom: #3c3c3b 4px solid;
+  border-bottom: 4px solid #3c3c3b;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
 }
 
-/* Navbar links */
-.navbar a {
-  color: #ffffff;
+/* Navbar links and span */
+.navbar a,
+.navbar span {
   font-size: 20px;
-  text-decoration: none;
   padding: 10px 20px;
   margin: 0 5px;
-  position: relative;
-  display: inline-block;
   border-radius: 15px 15px 0 0;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
   background: linear-gradient(120deg, #636361 0%, #636361 100%);
   background-repeat: no-repeat;
-  background-size: 100% 0em;
+  background-size: 100% 0;
   background-position: 0 100%;
   transition: background-size 0.25s ease-in;
 }
 
 .navbar span {
-  color: #ffffff;
   background-color: #636361;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  border-radius: 15px 15px 0 0;
+  color: #ffffff;
 }
 
-.navbar .open-icon,
-.navbar .close-icon {
+/* Navbar Buttons */
+.navbar button.open-icon,
+.navbar button.close-icon {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
-  padding-left: 12px;
-  border-radius: 10px 0 0 10px;
+  font-size: 20px;
+  line-height: 1;
+  color: #ffffff;
+  padding: 8px 10px 10px 12px;
+  border: none;
+  border-radius: 5px 0 0 5px;
   background: linear-gradient(120deg, #636361 0%, #636361 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -80,34 +80,11 @@ body {
   background-size: 100% 100%;
 }
 
-/* Dropdown link hover effect */
-.navbar.dropdown a {
-  background: linear-gradient(120deg, #636361 0%, #636361 100%);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  background-position: 0 100%;
-  transition: background-size 0.25s ease-in;
-}
-
-.navbar.dropdown a:hover {
-  background-size: 100% 100%;
-}
-
-.navbar.dropdown .open-icon,
-.navbar.dropdown .close-icon {
-  background-position: 100% 0;
-}
-
-.navbar.dropdown .open-icon:hover,
-.navbar.dropdown .close-icon:hover {
-  background-size: 100% 100%;
-}
-
 /* Form Styles */
 form {
   background-color: #89c82e;
   border-radius: 30px;
-  border: #3c3c3b 4px solid;
+  border: 4px solid #3c3c3b;
   padding: 30px 25px 10px;
 }
 
@@ -123,7 +100,6 @@ label {
 input {
   min-width: 215px;
   height: 1.3rem;
-  color: black;
   padding-left: 4px;
   border: none;
 }
@@ -137,25 +113,24 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
-  appearance: textfield;
 }
 
 /* Button Styles */
 button {
-  font-family: inherit;
-  font-size: inherit;
+  font: inherit;
   justify-self: center;
   padding: 2px 10px;
   border-radius: 3px;
-  border: #3c3c3b 1px solid;
+  border: 1px solid #3c3c3b;
   background-color: #e70064;
   cursor: pointer;
 }
 
+/* Background */
 .background {
   position: fixed;
   inset: 0;
-  background: url("/src/background-image.webp");
+  background: url("/src/background-image.webp") center/cover;
   filter: brightness(0.4);
   z-index: -1;
 }
@@ -170,11 +145,6 @@ button {
   display: flex;
   align-items: center;
   margin: 8px 0;
-}
-
-/* Success Styles */
-.success {
-  background-color: none;
 }
 
 /* Error Styles */
@@ -195,17 +165,15 @@ button {
     height: 110px;
   }
 
-  .navbar span {
+  .navbar span,
+  .navbar a {
     margin: 0;
     padding: 6px 10px 6px 6px;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 5px 5px 0;
   }
 
   .navbar a {
     display: none;
-    margin: 0;
-    padding: 6px 10px 6px 6px;
-    border-radius: 0 15px 15px 0;
     background-size: 0% 100%;
     background-position: 0 100%;
   }
@@ -218,16 +186,16 @@ button {
     background-size: 100% 100%;
   }
 
-  .navbar .open-icon {
+  .navbar button.open-icon {
     display: block;
   }
 
-  .navbar .close-icon {
+  .navbar button.close-icon {
     display: none;
   }
 
-  .navbar .open-icon:hover,
-  .navbar .close-icon:hover {
+  .navbar button.open-icon:hover,
+  .navbar button.close-icon:hover {
     background-size: 100% 100%;
   }
 }
