@@ -9,12 +9,12 @@ document.getElementById("form").addEventListener("submit", (e) => {
   if (formValidation(name, email, card)) {
     let targetEmail = "challenge@dn-uk.com";
     let subject = "Form Submission - Software Dev Challenge";
-    let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
+    let body = `Name: ${name.value}%0D%0A Email: ${email.value}%0D%0 ACard: ${card.value}`;
     window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
   }
 });
 
-// Utility functions for adding/removing classes
+// Utility functions for adding/removing classes highlighting valid/invalid fields
 function setValidField(field) {
   field.classList.add("success");
   field.classList.remove("error", "placeholder-white");
@@ -25,11 +25,21 @@ function setInvalidField(field) {
   field.classList.remove("success");
 }
 
-// Form validation
+// Hide input value on blur
+function hideValue(inputId) {
+  document.getElementById(inputId).type = "password";
+}
+
+// Show input value on focus
+function showValue(inputId) {
+  document.getElementById(inputId).type = "text";
+}
+
+// Form validation function
 function formValidation(name, email, card) {
   let isValid = true;
 
-  // Name validation (Supports first & last name, allows hyphens)
+  // Name validation (Allows letters, special characters, and hyphens)
   let namePattern =
     /^[A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,}(?: [A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,}(?:-[A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,})?)+$/;
   if (!namePattern.test(name.value.trim())) {
@@ -39,7 +49,7 @@ function formValidation(name, email, card) {
     setValidField(name);
   }
 
-  // Email validation
+  // Email validation (Basic email pattern)
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email.value.trim())) {
     setInvalidField(email);
@@ -48,54 +58,46 @@ function formValidation(name, email, card) {
     setValidField(email);
   }
 
-  // Card validation (Luhn Algorithm)
-  let numStr = card.value.replace(/\s+/g, "");
+  // Card validation (Length check, numeric check, not all zeros, and Luhn algorithm)
+  let numStr = card.value.replace(/\s+/g, ""); // Remove spaces
   if (
     numStr.length < 13 ||
     numStr.length > 19 ||
     !/^\d+$/.test(numStr) ||
-    /^0+$/.test(numStr) // Check if the card number is all zeros
+    numStr === "0000000000000000" ||
+    !luhnCheck(numStr)
   ) {
     setInvalidField(card);
     isValid = false;
   } else {
-    let sum = 0,
-      shouldDouble = false;
-    for (let i = numStr.length - 1; i >= 0; i--) {
-      let digit = parseInt(numStr[i]);
-      if (shouldDouble) {
-        digit *= 2;
-        if (digit > 9) digit -= 9;
-      }
-      sum += digit;
-      shouldDouble = !shouldDouble;
-    }
-    if (sum % 10 !== 0) {
-      setInvalidField(card);
-      isValid = false;
-    } else {
-      setValidField(card);
-    }
+    setValidField(card);
   }
 
   return isValid;
 }
 
-// Remove error class when user starts typing
+// Luhn Algorithm for card validation
+function luhnCheck(val) {
+  let sum = 0;
+  for (let i = 0; i < val.length; i++) {
+    let intVal = parseInt(val.substr(i, 1));
+    if (i % 2 == 0) {
+      intVal *= 2;
+      if (intVal > 9) {
+        intVal = 1 + (intVal % 10);
+      }
+    }
+    sum += intVal;
+  }
+  return sum % 10 == 0;
+}
+
+// Loop to remove error class when user starts typing
 ["name", "email", "card"].forEach((id) => {
   document.getElementById(id).addEventListener("input", function () {
     this.classList.remove("error", "placeholder-white");
   });
 });
-
-// Hide/Show input value on user action
-function hideValue(inputId) {
-  document.getElementById(inputId).type = "password";
-}
-
-function showValue(inputId) {
-  document.getElementById(inputId).type = "text";
-}
 
 // Toggle navbar
 function toggleNavDropdown() {
