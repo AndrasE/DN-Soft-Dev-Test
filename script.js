@@ -30,7 +30,8 @@ function formValidation(name, email, card) {
   let isValid = true;
 
   // Name validation (Supports first & last name, allows hyphens)
-  let namePattern = /^[A-Za-z]{2,}(?: [A-Za-z]{2,}(?:-[A-Za-z]{2,})?)+$/;
+  let namePattern =
+    /^[A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,}(?: [A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,}(?:-[A-Za-z!#$%&'*+\-/=?^_`{|}~]{2,})?)+$/;
   if (!namePattern.test(name.value.trim())) {
     setInvalidField(name);
     isValid = false;
@@ -48,8 +49,13 @@ function formValidation(name, email, card) {
   }
 
   // Card validation (Luhn Algorithm)
-  let numStr = card.value.replace(/\s+/g, ""); // Remove spaces
-  if (numStr.length < 13 || numStr.length > 19 || !/^\d+$/.test(numStr)) {
+  let numStr = card.value.replace(/\s+/g, "");
+  if (
+    numStr.length < 13 ||
+    numStr.length > 19 ||
+    !/^\d+$/.test(numStr) ||
+    /^0+$/.test(numStr) // Check if the card number is all zeros
+  ) {
     setInvalidField(card);
     isValid = false;
   } else {
