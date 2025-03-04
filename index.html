@@ -12,38 +12,35 @@
     <title>Digital-Native Software-Dev-Test</title>
 </head>
 
-<body>
-    <nav class="navbar" id="navbar">
-        <span>Submission</span>
-        <a href="challenge.html">Challenge</a>
-        <a href="reflect.html">Reflection</a>
-        <button type="button" class="open-icon" aria-label="Open Navigation Menu"
-            onclick="toggleNavDropdown()">☰</button>
-        <button type="button" class="close-icon" aria-label="Close Navigation Menu"
-            onclick="toggleNavDropdown()">X</button>
-    </nav>
+<nav class="navbar" id="navbar">
+    <span>Submission</span>
+    <a href="challenge.html">Challenge</a>
+    <a href="reflect.html">Reflection</a>
+    <button type="button" class="open-icon" aria-label="Open Navigation Menu" onclick="toggleNavDropdown()">☰</button>
+    <button type="button" class="close-icon" aria-label="Close Navigation Menu" onclick="toggleNavDropdown()">X</button>
+</nav>
 
-    <div class="background"></div>
+<div class="background"></div>
 
-    <form id="form" novalidate>
-        <div class="input-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter Your Name" autocomplete="name" onblur="hideValue('name')"
-                onfocus="showValue('name')" required>
-        </div>
-        <div class="input-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter Your Email" autocomplete="email" required>
-        </div>
-        <div class="input-group">
-            <label for="card">Card:</label>
-            <input type="text" id="card" placeholder="Enter a Proxy Credit Card Number." pattern="\d{13,19}"
-                onblur="hideValue('card')" onfocus="showValue('card')" inputmode="numeric" required>
-        </div>
-        <button type="submit" id="button">Submit</button>
-    </form>
+<form id="form" novalidate>
+    <div class="input-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Your Name" autocomplete="name" onblur="hideValue('name')"
+            onfocus="showValue('name')" required>
+    </div>
+    <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter Your Email" autocomplete="email" required>
+    </div>
+    <div class="input-group">
+        <label for="card">Card:</label>
+        <input type="text" id="card" placeholder="Enter a Proxy Credit Card Number." pattern="\d{13,19}"
+            onblur="hideValue('card')" onfocus="showValue('card')" inputmode="numeric" required>
+    </div>
+    <button type="submit" id="button">Submit</button>
+</form>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
