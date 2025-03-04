@@ -24,7 +24,7 @@ body {
   overflow: hidden;
   background-color: #89c82e;
   height: 40px;
-  border-bottom: 4px solid #3c3c3b;
+  outline: 4px solid #3c3c3b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +65,7 @@ body {
   font-size: 20px;
   line-height: 1;
   color: #ffffff;
-  padding: 8px 10px 10px 12px;
+  padding: 10px 10px 10px 12px;
   border: none;
   border-radius: 5px 0 0 5px;
   background: linear-gradient(120deg, #3c3c3b 0%, #3c3c3b 100%);
@@ -153,6 +153,11 @@ button {
   color: white;
 }
 
+iframe {
+  width: 100%;
+  height: calc(100%);
+}
+
 /* Media Queries */
 @media screen and (max-width: 600px) {
   .navbar {
@@ -168,7 +173,7 @@ button {
   .navbar span,
   .navbar a {
     margin: 0;
-    padding: 7px 7px 7px 5px;
+    padding: 9px 9px 9px 5px;
     border-radius: 0 5px 5px 0;
   }
 
