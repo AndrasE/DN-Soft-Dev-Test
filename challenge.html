@@ -26,7 +26,23 @@
     <!-- Embedded PDF file -->
     <iframe id="pdf-frame" src="src/software-dev-short-challenge-v0.3.pdf"> </iframe>
 
-    <script src="script2.js"></script>
+    <script>
+        function toggleNavDropdown() {
+            let navbar = document.getElementById("navbar");
+            navbar.classList.toggle("responsive");
+
+            let openIcon = document.querySelector(".open-icon");
+            let closeIcon = document.querySelector(".close-icon");
+
+            if (navbar.classList.contains("responsive")) {
+                openIcon.style.display = "none";
+                closeIcon.style.display = "inline";
+            } else {
+                openIcon.style.display = "inline";
+                closeIcon.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
