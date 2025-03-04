@@ -9,7 +9,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
   if (formValidation(name, email, card)) {
     let targetEmail = "challenge@dn-uk.com";
     let subject = "Form Submission - Software Dev Challenge";
-    let body = `Name: ${name.value}%0D%0A Email: ${email.value}%0D%0 ACard: ${card.value}`;
+    let body = `Name: ${name.value}%0D%0AEmail: ${email.value}%0D%0ACard: ${card.value}`;
     window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
   }
 });
@@ -79,17 +79,19 @@ function formValidation(name, email, card) {
 // Luhn Algorithm for card validation
 function luhnCheck(val) {
   let sum = 0;
-  for (let i = 0; i < val.length; i++) {
-    let intVal = parseInt(val.substr(i, 1));
-    if (i % 2 == 0) {
-      intVal *= 2;
-      if (intVal > 9) {
-        intVal = 1 + (intVal % 10);
+  let shouldDouble = false;
+  for (let i = val.length - 1; i >= 0; i--) {
+    let digit = parseInt(val.charAt(i));
+    if (shouldDouble) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
       }
     }
-    sum += intVal;
+    sum += digit;
+    shouldDouble = !shouldDouble;
   }
-  return sum % 10 == 0;
+  return sum % 10 === 0;
 }
 
 // Loop to remove error class when user starts typing

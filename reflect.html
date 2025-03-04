@@ -24,8 +24,130 @@
     </nav>
 
     <div class="background"></div>
+    <main>
+        <div class="content">
+            <h1>Hi there,</h1>
+            <h2>Learning, Implementing, and Refining</h2>
+            <p>I really enjoyed working on this mini-project! It was great to use the shared PDF as a structured guide,
+                helping
+                me
+                break down my tasks step by step. After reviewing the document a few times, I organized my workflow as
+                follows:
+            </p>
+            <ul>
+                <li>Set up a basic HTML, CSS, and JavaScript project, ensuring all files were correctly linked.</li>
+                <li>Used Appendix A - User Stories (No. 5) to replicate the form's styling based on the
+                    description
+                    and shared image.</li>
+                <li>Implemented basic validation for all inputs, highlighting errors in the specified color.</li>
+                <li>Edited regex patterns for name and email fields to align with Appendix C - Simplified Test
+                    Suite requirements.</li>
+                <li>Learned about the Luhn algorithm by watching a short video (similar to the one in the PDF)
+                    and
+                    implemented it step by step.</li>
+                <li>Reviewed Appendix C - Simplified Test Suite to identify and correct any failures in the
+                    algorithm.</li>
+                <li>Added some extra touches: a responsive navbar and a Challenge/Reflection
+                    section.</li>
+                <li>Did a final review—simplified the code, removed redundant classes, and ensured everything was clean
+                    and
+                    functional.</li>
+                <li>Wrapped up with this reflection section.</li>
+            </ul>
 
-    <h1 style="color: aliceblue;">Reflect</h1>
+            <h2>Handling the Mailto Function Issue</h2>
+            <p>I had to find a workaround since my Chromium-based browser wouldn't allow me to open the mail client
+                directly.
+                Fortunately, I had encountered this issue before, so I followed these steps:</p>
+
+            <ol>
+                <li>Disable AdBlock (if enabled).</li>
+                <li>Go to <code>chrome://settings/handlers</code> and enable <em>"Allow sites to ask to handle
+                        protocols."</em>
+                </li>
+                <li>Open the browser console and type: <code>allow pasting</code></li>
+                <li>Copy and paste the following command:</li>
+            </ol>
+            <div class="code-block">
+                <code>
+            navigator.registerProtocolHandler('mailto', 'https://mail.google.com/mail/?extsrc=...%s', 'Gmail')
+            </code>
+            </div>
+
+            <ol start="5">
+                <li>Click <em>Allow</em> on the popup that appears.</li>
+            </ol>
+
+            <h2>Observations on User Stories & Design</h2>
+            <p>I found the user stories easy to follow and didn't need to make many assumptions apart from the font size
+                and
+                family.
+                However, I did notice a small typo—the hex code for the pink color is missing an "e" at the
+                beginning. Also, the contrast between gray/black text and the pink background made readability a bit
+                challenging.
+            </p>
+
+            <p>To improve accessibility, I adjusted the placeholder color on error states to white, which I
+                believe
+                makes it more user-friendly.</p>
+
+            <h2>Reflections on the Learning Process and AI</h2>
+            <p>The test cases were incredibly helpful. Having them before starting the project allowed me to visualize
+                the
+                end
+                goal
+                more clearly. I initially created a form that didn't pass, but step by step, I adjusted it until it met
+                all
+                the
+                requirements.</p>
+
+            <p>I also made use of generative AI, which has been a game-changer. Although I was skeptical at
+                first,
+                I've come to appreciate how useful it is. In the past, I would have multiple tabs open—MDN, W3C, Stack
+                Overflow,
+                Reddit—going through a lot of trial and error to find the right solution. AI doesn't always provide
+                perfect
+                answers,
+                but it offers great ideas and significantly speeds up the learning process by explaining concepts
+                without
+                the
+                need
+                for extensive research.</p>
+
+            <p>That said, AI has its shortcomings. It can encourage laziness—people might copy and paste solutions
+                without
+                fully
+                understanding them, and in many cases, those solutions aren't entirely correct. I've encountered
+                situations
+                where
+                AI-generated code relied on outdated package documentation, leading to errors. So while it's a
+                fantastic tool, it's essential to use it with a critical mindset.</p>
+
+            <p>I regularly use ChatGPT, Gemini, Codium, and GitHub Copilot, and I think they all have their
+                strengths. However, I'm not particularly fond of Copilot's inline edits—I don't like having my
+                code
+                rewritten on the fly. I prefer the chat-based approach, where I can review suggestions and
+                decide
+                how to implement them myself. Maybe I just haven't gotten used to Copilot's workflow yet, but for now,
+                that's my
+                stance on it.</p>
+
+            <h2>Key Takeaways from This Project</h2>
+            <p>I've realized that every project, no matter how simple, always offers something new to learn.
+                With
+                this project, I gained a much deeper understanding of regex—I had used it before for basic form
+                validation, but I had never really explored its full potential. Now, I can see just how powerful and
+                versatile
+                it
+                is.</p>
+
+            <p>I also had no prior knowledge of the Luhn algorithm, so learning about it was a fascinating
+                experience. It's always exciting to come across new concepts that expand my problem-solving toolkit!</p>
+            <div class="footer">
+                <p>Thanks for reading!</p>
+                <a href="https://andrasegyed.netlify.app/" target="_blank">Andras</a>
+            </div>
+    </main>
     <script>
         function toggleNavDropdown() {
             let navbar = document.getElementById("navbar");
