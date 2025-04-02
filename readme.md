@@ -20,7 +20,7 @@ This was a short challenge for a job application, where I needed to replicate an
 ## Run 🚀
 
 `
-$ git clone https://github.com/AndrasE/firsty
+$ git clone https://github.com/AndrasE/DN-Soft-Dev-Test
 `
 
 `
