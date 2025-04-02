@@ -1,6 +1,6 @@
 <h3 align="center">
   <a href="https://andrase.github.io/DN-Soft-Dev-Test/" target="_blank" rel="noopener noreferrer">
-  <img src="https://github.com/AndrasE/raw-readme/blob/36809e099018f4297ae710817bab6e90dc8c9737/logo/soft-dev-hallange-readme.png" width="100px">
+  <img src="https://github.com/AndrasE/raw-readme/blob/36809e099018f4297ae710817bab6e90dc8c9737/logo/soft-dev-hallange-readme.png" width="200px">
   </a>
   <br/>
 Software developer challange
@@ -12,10 +12,10 @@ This was a short challenge for a job application, where I needed to replicate an
 
 ### Task
 
-- **Develop a simple web page using HTML, CSS, and JavaScript**
-- **Implement the LUHN Algorithm for credit card validation**
-- **Ensure the form adheres to user stories and passes prewritten tests**
-- **As an extra touch, I added a responsive navigation bar and embedded the PDF challenge**
+- Develop a simple web page using HTML, CSS, and JavaScript
+- Implement the LUHN Algorithm for credit card validation
+- Ensure the form adheres to user stories and passes prewritten tests
+- As an extra touch, I added a responsive navigation bar and embedded the PDF challenge
 
 ## Run 🚀
 
